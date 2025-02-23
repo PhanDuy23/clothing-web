@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import  HeroSlider  from "../../components/layout/HeroSlider";
 import  Footer  from "../../components/layout/Footer";
 import  ProductCategories  from "../../components/categories/product-categories";
