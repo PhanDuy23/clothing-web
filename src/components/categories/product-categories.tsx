@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { Button } from "../ui/button"
-import { useEffect, useState } from "react"
-import { getAllCategories } from "../../services/getApi"
+// import { useEffect, useState } from "react"
+// import { getAllCategories } from "../../services/getApi"
 
 const categories = [
   {
@@ -27,15 +27,15 @@ const categories = [
 ]
 
 export default function ProductCategories() {
-  const [categories, setCategories] = useState([])
+  // const [categories, setCategories] = useState([])
 
-  useEffect(() => {
-    async function getData() {
-      const data = await getAllCategories();
-      setCategories(data);
-    }
-    // getData()
-  })
+  // useEffect(() => {
+  //   async function getData() {
+  //     const data = await getAllCategories();
+  //     setCategories(data);
+  //   }
+  //   // getData()
+  // })
 
   return (
     <section className="container mx-auto px-4 py-12">
