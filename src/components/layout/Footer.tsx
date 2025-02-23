@@ -29,12 +29,12 @@ export default function Footer() {
             </div>
             <h4 className="font-semibold mb-4">Phương thức thanh toán</h4>
             <div className="grid grid-cols-3 gap-4">
-              <img src="/placeholder.svg" alt="VNPAY" className="h-8" />
+              {/* <img src="/placeholder.svg" alt="VNPAY" className="h-8" />
               <img src="/placeholder.svg" alt="ZaloPay" className="h-8" />
               <img src="/placeholder.svg" alt="Moca" className="h-8" />
               <img src="/placeholder.svg" alt="Kredivo" className="h-8" />
               <img src="/placeholder.svg" alt="Napas" className="h-8" />
-              <img src="/placeholder.svg" alt="Visa" className="h-8" />
+              <img src="/placeholder.svg" alt="Visa" className="h-8" /> */}
             </div>
           </div>
 
@@ -61,10 +61,10 @@ export default function Footer() {
             </div>
             <h4 className="font-semibold mt-6 mb-4">Phương thức vận chuyển</h4>
             <div className="grid grid-cols-4 gap-4">
-              <img src="/placeholder.svg" alt="GHN" className="h-8" />
+              {/* <img src="/placeholder.svg" alt="GHN" className="h-8" />
               <img src="/placeholder.svg" alt="Ninja Van" className="h-8" />
               <img src="/placeholder.svg" alt="Ahamove" className="h-8" />
-              <img src="/placeholder.svg" alt="J&T Express" className="h-8" />
+              <img src="/placeholder.svg" alt="J&T Express" className="h-8" /> */}
             </div>
           </div>
 
@@ -115,7 +115,7 @@ export default function Footer() {
               <Input type="email" placeholder="Nhập email của bạn" className="flex-1" />
               <Button className="bg-red-600 hover:bg-red-700 text-white">ĐĂNG KÝ</Button>
             </div>
-            <img src="/placeholder.svg" alt="Đã thông báo Bộ Công Thương" className="h-16" />
+            {/* <img src="placeholder.svg" alt="Đã thông báo Bộ Công Thương" className="h-16" /> */}
           </div>
         </div>
 

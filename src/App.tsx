@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route, HashRouter} from "react-router-dom"
 import ClientRoutes from "./routes/ClientRoutes"
 
 // import process from "process";
