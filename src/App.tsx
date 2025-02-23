@@ -9,7 +9,7 @@ export default function App() {
 
   return (
    
-      <BrowserRouter>
+      <BrowserRouter basename="/Clothing-web">
         <Routes>
           <Route path="/*" element={<ClientRoutes/>}/>
         </Routes>
