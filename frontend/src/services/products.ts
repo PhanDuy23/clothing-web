@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ProductDetail, ResponseError } from "../type";
+import { ProductDetail } from "../type";
 
 const api = axios.create({
     baseURL: "http://localhost:5000/products",

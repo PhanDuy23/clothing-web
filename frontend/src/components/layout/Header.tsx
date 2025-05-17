@@ -1,14 +1,14 @@
 
-import { Bell, ChevronDown, Search, ShoppingBag, ShoppingCart, User } from "lucide-react"
+import { Bell, ChevronDown,  ShoppingCart, User } from "lucide-react"
 import { Button } from "../ui/button"
 import ShoppingCartModal from "./shopping-cart-modal"
 import { useEffect, useState } from "react"
-import { Input } from "../ui/input"
 import { Link } from "react-router-dom"
 import { Category} from "../../type"
 import { buildCategoryTree, getCategories } from "../../services/categories"
 import { useAuth } from "../../redux/useAuth"
 import useShoppingCart from "../../redux/useShoppingCart"
+import SearchBar from "./search"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -120,12 +120,8 @@ export default function Header() {
 
 
         <div className="flex items-center gap-4 ">
-          <Input placeholder="tìm kiếm" className="w-[300px]" />
-
-          {/* <Button variant="ghost" size="icon">
-              <Search className="w-6 h-6" />
-          </Button> */}
-
+          {/* <Input placeholder="tìm kiếm" className="w-[300px]" /> */}
+          <SearchBar/>    
           <Button variant="ghost" size="icon" asChild>
             <Link to={(user ? "/account" : "/login")}>
               <User className="w-6 h-6" />

@@ -7,6 +7,8 @@ function authenticateToken(req, res, next) {
     if (token == null) return res.status(401).json({ message: "chưa có token" });
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        // console.log("token ", authHeader);
+        
         if (err) return res.status(403).json({ message: "token lỗi không khớp với người dùng" });
         req.user = user;
         
