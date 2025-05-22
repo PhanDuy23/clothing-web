@@ -45,21 +45,22 @@ export default function PersonalInfor() {
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="firstName">Họ tên</Label>
+                <Label className="font-bold" htmlFor="firstName">Họ tên</Label>
                 <Input
                   id="firstName"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
+                  className="w-fit"
                 />
 
               </div>
               <div className="space-y-2">
-                <Label htmlFor="lastName">Tên đăng nhập</Label>
+                <Label className="font-bold" htmlFor="lastName">Tên đăng nhập</Label>
                 <p>{user?.userName}</p>
               </div>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+            <div className="space-y-2 w-fit">
+              <Label className="font-bold" htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -67,8 +68,8 @@ export default function PersonalInfor() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="phone">Số điện thoại</Label>
+            <div className="space-y-2 w-fit">
+              <Label className="font-bold" htmlFor="phone">Số điện thoại</Label>
               <Input
                 id="phone"
                 value={phone}

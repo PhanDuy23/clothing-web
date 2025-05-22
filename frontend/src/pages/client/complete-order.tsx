@@ -410,10 +410,10 @@ export function CompleteOrder() {
                         <RadioGroupItem value="cod" id="cod" />
                         <Label htmlFor="cod">Thanh toán khi giao hàng (COD)</Label>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      {/* <div className="flex items-center space-x-2">
                         <RadioGroupItem value="bank" id="bank" />
                         <Label htmlFor="bank">Chuyển khoản ngân hàng</Label>
-                      </div>
+                      </div> */}
                     </RadioGroup>
                   )}
                 />

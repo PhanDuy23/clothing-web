@@ -123,7 +123,7 @@ export default function Header() {
           {/* <Input placeholder="tìm kiếm" className="w-[300px]" /> */}
           <SearchBar/>    
           <Button variant="ghost" size="icon" asChild>
-            <Link to={(user ? "/account" : "/login")}>
+            <Link to={(user?.role == "customer" ? "/account" : "/login")}>
               <User className="w-6 h-6" />
             </Link>
 

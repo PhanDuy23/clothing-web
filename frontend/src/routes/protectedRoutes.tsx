@@ -1,19 +1,19 @@
-import { ReactNode } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { ReactNode, useEffect } from 'react';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../redux/useAuth';
 
 interface ProtectedRouteProps {
     children: ReactNode;
-    requiredRole?: string;
+    requiredRoles?: [];
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     children,
-    requiredRole
+    requiredRoles
 }) => {
-    const {user} = useAuth()
+    const { user } = useAuth()
     const location = useLocation();
-
+    const navigate = useNavigate()
     // Hiển thị trạng thái loading nếu đang kiểm tra xác thực   
     console.log("user", user);
 
@@ -22,10 +22,14 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    // Nếu cần vai trò cụ thể và người dùng không có vai trò đó
-    if (requiredRole && user.role !== requiredRole) {
-        alert("không đủ quyền")
-        return <Navigate to="/" replace />;
+    if (requiredRoles && !requiredRoles.includes(user.role)) {
+        useEffect(() => {
+            alert("Không đủ quyền");
+            console.log("path", location.pathname);
+            navigate(-1);
+        }, []);
+
+        return null; // Không render nội dung gì
     }
 
     // Nếu đã xác thực và có quyền truy cập, hiển thị nội dung

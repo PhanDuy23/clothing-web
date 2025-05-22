@@ -10,6 +10,7 @@ const db = mysql.createConnection({
   port: process.env.DB_PORT
 }).promise();
 
+
 // Kiểm tra kết nối khi khởi động
 db.query("SELECT 1")
   .then(() => {

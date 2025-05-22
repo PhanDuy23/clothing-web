@@ -30,9 +30,9 @@ export function AreaChartComponent() {
           <AreaChart data={areaData}>
             <XAxis dataKey="month" />
             <YAxis />
-            <Area type="monotone" dataKey="series1" stackId="1" stroke="#8884d8" fill="#8884d8" />
-            <Area type="monotone" dataKey="series2" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-            <Area type="monotone" dataKey="series3" stackId="1" stroke="#ffc658" fill="#ffc658" />
+            {/* <Area type="monotone" dataKey="series1" stackId="1" stroke="#8884d8" fill="#8884d8" /> */}
+            {/* <Area type="monotone" dataKey="series2" stackId="1" stroke="#82ca9d" fill="#82ca9d" /> */}
+            {/* <Area type="monotone" dataKey="series3" stackId="1" stroke="#ffc658" fill="#ffc658" /> */}
           </AreaChart>
         </ResponsiveContainer>
       </CardContent>

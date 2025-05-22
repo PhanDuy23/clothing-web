@@ -6,6 +6,7 @@ import {
   Package,
   ClipboardList,
   LogOut,
+  User,
 } from "lucide-react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useAuth } from "../../redux/useAuth"
@@ -14,6 +15,18 @@ export function SidebarAdmin() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
+  const directList = [
+            { icon: LayoutDashboard, label: "Báo cáo", link: null },         
+            { icon: Users, label: "Quản lý khách hàng", link: "client-management" },
+            { icon: Package, label: "Quản lý sản phẩm", link: "products-management" },
+            { icon: Package, label: "Quản lý Danh mục", link: "categories-management" },
+            { icon: ClipboardList, label: "Quản lý đơn hàng", link: "order-management" },
+            { icon: Package, label: "Quản lý slide", link: "slide-management" },
+          ] 
+  if(user?.role == "manager"){
+    directList.push({ icon: Users, label: "Quản lý nhân viên", link: "employee-management" })
+  }
+  directList.push({ icon: User, label: "Tài khoản", link: "account" })
   return (
     <div className="flex flex-col space-y-6 p-4  h-screen w-60 bg-[#0a1e46]">
       <div className="flex flex-col space-y-4 py-4 h-full">
@@ -30,15 +43,7 @@ export function SidebarAdmin() {
           </div>
         </div>
         <div className="space-y-3  ">
-          {[
-            { icon: LayoutDashboard, label: "Báo cáo", link: null },
-            { icon: Users, label: "Quản lý nhân viên", link: "employee-management" },
-            { icon: Users, label: "Quản lý khách hàng", link: "client-management" },
-            { icon: Package, label: "Quản lý sản phẩm", link: "products-management" },
-            { icon: Package, label: "Quản lý Danh mục", link: "categories-management" },
-            { icon: ClipboardList, label: "Quản lý đơn hàng", link: "order-management" },
-            { icon: Package, label: "Quản lý slide", link: "slide-management" },
-          ].map((item) => (
+          { directList .map((item) => (
             <NavLink to={item.link ? `/admin/${item.link}` : "/admin"}
                     end={!item.link} key={item.label} className={({ isActive }) => `flex w-[100%] p-2 rounded-md justify-start text-center items-center gap-2 hover:text-white ${isActive
               ? "bg-white/10 text-white"

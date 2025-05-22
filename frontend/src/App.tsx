@@ -12,6 +12,7 @@ import { NewCategoryForm } from "./pages/admin/new-category-form"
 import { ProductForm } from "./pages/admin/newproduct-form"
 import SlideManagement from "./pages/admin/slide-management"
 import { NewBannerForm } from "./pages/admin/slide-create"
+import PersonalInfor from "./pages/client/personal-infor"
 
 export default function App() {
 
@@ -23,23 +24,31 @@ export default function App() {
         <Route path="/*" element={<ClientRoutes />} />
 
         <Route path="/admin/*" element={
-          <ProtectedRoute requiredRole="admin">
+          <ProtectedRoute requiredRoles={['admin', 'manager']}>
             <AdminLayout />
           </ProtectedRoute>
         }>
           <Route index element={<Dashboard />} />
+          <Route path="account" element={<PersonalInfor />} />
           <Route path="products-management" element={<ProductsManagement />} />
           <Route path="products-management/create" element={<ProductForm />} />
           <Route path="products-management/update" element={<ProductForm />} />
           <Route path="client-management" element={<ClientManagement />} />
           <Route path="order-management" element={<OrderManagement />} />
-          <Route path="employee-management" element={<EmployeeManagement />} />
-          
-          <Route path="categories-management" element={<CategoriesManagement />} />
-          <Route path="categories-management/create" element={<NewCategoryForm/>} />
 
-          <Route path="slide-management" element={<SlideManagement/>} />
-          <Route path="slide-management/create" element={<NewBannerForm/>} />
+
+          <Route path="categories-management" element={<CategoriesManagement />} />
+          <Route path="categories-management/create" element={<NewCategoryForm />} />
+          <Route path="employee-management" element={
+            <ProtectedRoute requiredRoles={['manager']} >
+              <EmployeeManagement />
+            </ProtectedRoute>}
+          />
+
+
+          <Route path="slide-management" element={<SlideManagement />} />
+          <Route path="slide-management/create" element={<NewBannerForm />} />
+
         </Route>
       </Routes>
     </BrowserRouter >

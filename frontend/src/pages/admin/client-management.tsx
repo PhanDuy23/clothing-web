@@ -40,7 +40,6 @@ export function ClientManagement() {
       if (data) {
         setPagination(data.pagination)
         setCustomers(data.users || [])
-
       }
     }
     getData()

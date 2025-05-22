@@ -193,7 +193,7 @@ users.put("/change-password/:id", async (req, res) => {
 });
 
 // Lấy danh sách người dùng (có phân trang)
-users.get("/", authenticateToken, checkRole("admin"),  async (req, res) => {
+users.get("/", authenticateToken,  async (req, res) => {
     try {
         const limit = parseInt(req.query.limit) || parseInt(process.env.QRY_LIMIT) || 10;
         const page = parseInt(req.query.page) || parseInt(process.env.QRY_PAGE) || 1;

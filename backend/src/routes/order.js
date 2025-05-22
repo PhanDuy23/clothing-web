@@ -2,7 +2,7 @@ const express = require("express");
 const orders = express.Router();
 const cors = require("cors");
 const db = require("../models/mysql.js");
-
+const { checkRole, authenticateToken } = require("./auth.js")
 orders.use(cors());
 
 // POST endpoint để tạo đơn hàng mới
@@ -149,7 +149,7 @@ orders.post("/", async (req, res) => {
   }
 });
 
-orders.get("/", async (req, res) => {
+orders.get("/", authenticateToken, async (req, res) => {
   const { status } = req.query;
   console.log(req.query);
   

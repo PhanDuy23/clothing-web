@@ -9,7 +9,7 @@ import OverviewOrderItem from "../product/overview-orderItem"
 import { calculateTotalPrice, formatPrice } from "../../pages/client/complete-order"
 import useOrder from "../../redux/useOrder"
 import useShoppingCart from "../../redux/useShoppingCart"
-import { getCartItems } from "../../services/carts"
+import { getCartItems, removeCartItem } from "../../services/carts"
 
 
 interface props {
@@ -49,9 +49,14 @@ export default function ShoppingCartModal({ isOpen, onClose, user }: props) {
         onClose()
     }
 
-    const handleRemoveItem = (id: number) => {
-        setCartItems(cartItems.filter((item) => item.id !== id))
-        remove(id)
+    const handleRemoveItem = async (id: number) => {       
+        const {success, message} = await removeCartItem(id)
+        if(success){
+            setCartItems(cartItems.filter((item) => item.id !== id))
+            remove(id)
+        }else{
+            alert(message)
+        }
     }
 
     const handleCheckBox = (checked: boolean, id: number) => {

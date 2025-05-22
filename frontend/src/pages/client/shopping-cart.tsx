@@ -10,6 +10,7 @@ import { OrderItemType } from "../../type"
 import useOrder from "../../redux/useOrder"
 import { useNavigate } from "react-router-dom"
 import useShoppingCart from "../../redux/useShoppingCart"
+import { removeCartItem } from "../../services/carts"
 
 export function ShoppingCart() {
   
@@ -23,9 +24,15 @@ export function ShoppingCart() {
     navigate("/complete-order")
   }
 
-  const handleRemoveItem = (id: number) => {
-    setCartItems(cart.filter((item) => item.id !== id))
+  const handleRemoveItem = async (id: number) => {
+    const {success, message} = await removeCartItem(id)
+    if(success){
+      setCartItems(cart.filter((item) => item.id !== id))
     remove(id)
+    }else{
+      alert(message)
+    }
+    
   }
 
   const handleCheckBox = (checked: boolean,id: number) => {

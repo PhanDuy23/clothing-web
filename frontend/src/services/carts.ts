@@ -46,11 +46,6 @@ export const getCartItems = async (userId: number): Promise<CartResponse> => {
   }
 };
 
-/**
- * Xóa sản phẩm khỏi giỏ hàng
- * @param cartItemId ID của item trong giỏ hàng
- * @returns Kết quả xóa
- */
 export const removeCartItem = async (cartItemId: number): Promise<CartResponse | null> => {
   try {
     const response = await cartsApi.delete<CartResponse>(`/${cartItemId}`);

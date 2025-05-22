@@ -22,12 +22,12 @@ export default function ClientRoutes() {
                 <Route path="collections/:categorySlug" element={<Collections />} />
                 <Route path="products/detail/:productSlug" element={<ProductDetail />} />
                 <Route path="shopping-cart" element={
-                    <ProtectedRoute>
+                    <ProtectedRoute requiredRoles={["customer"]}>
                         <ShoppingCart />
                     </ProtectedRoute>} 
                 />
                 <Route path="complete-order" element={
-                    <ProtectedRoute>
+                    <ProtectedRoute requiredRoles={["customer"]}>
                         <CompleteOrder />
                     </ProtectedRoute>}
                 />
@@ -41,7 +41,7 @@ export default function ClientRoutes() {
 
 
                 <Route path="account/*" element={
-                    <ProtectedRoute>
+                    <ProtectedRoute requiredRoles={["customer"]}>
                         <Account />
                     </ProtectedRoute>
                 }>

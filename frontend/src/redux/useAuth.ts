@@ -21,32 +21,43 @@ export const useAuth = create<AuthStore>()(
       setLoading: (loading) => set({ loading }),
 
       login: async (userName, password) => {
-        set({ loading: true })
+        set({ loading: true });
         try {
-          const { user, status, message, token } = await loginUser({ userName, password })
+          const { user, status, message, token } = await loginUser({ userName, password });
 
-          if (status !== 200) throw new Error(message)
-          sessionStorage.setItem("token", token)
-          set({ user })
-          set({ loading: false })
-          return { status: 200, user, message: "thành công" }
+          if (status !== 200) throw new Error(message);
+          sessionStorage.setItem("token", token);
+          set({ user });
+          set({ loading: false });
+          return { status: 200, user, message: "thành công" };
         } catch (error) {
-          console.error("Lỗi đăng nhập:", error)
-          set({ loading: false })
-          throw error
+          console.error("Lỗi đăng nhập:", error);
+          set({ loading: false });
+          throw error;
         }
       },
 
       logout: () => {
-        set({ user: null })
-        // Xoá thêm dữ liệu phụ khác nếu cần
-        localStorage.removeItem("cart")
-        localStorage.removeItem("order-items")
+        set({ user: null });
+        localStorage.removeItem("cart");
+        localStorage.removeItem("order-items");
       },
     }),
     {
-      name: 'user', // tên key trong localStorage
-      partialize: (state) => ({ user: state.user }), // chỉ lưu `user`, không lưu `loading`
+      name: 'user',
+      storage: {
+        getItem: (name) => {
+          const value = sessionStorage.getItem(name);
+          return value ? JSON.parse(value) : null;
+        },
+        setItem: (name, value) => {
+          sessionStorage.setItem(name, JSON.stringify(value));
+        },
+        removeItem: (name) => {
+          sessionStorage.removeItem(name);
+        }
+      },
+      partialize: (state) => ({ user: state.user }),
     }
   )
-)
+);

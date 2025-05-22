@@ -1,7 +1,7 @@
 "use client"
 
 import { format } from "date-fns"
-import { MoreHorizontal, Eye, Trash2, Package, Truck, CheckCircle, Edit } from "lucide-react"
+import { MoreHorizontal, Eye, Trash2, Package, Truck, CheckCircle, Edit, Key } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card"
 import {
@@ -18,7 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Badge } from "../../components/ui/badge"
 import type { OrderType } from "../../type"
 import Pagination from "../../components/layout/pagination"
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { getOrders, updateOrderStatus } from "../../services/order"
 import { translatePaymentStatus } from "../client/order-history"
 import { getOrderItems } from "../../services/order-items"
@@ -142,7 +142,7 @@ export function OrderManagement() {
               </TableHeader>
               <TableBody>
                 {filteredOrders.map((order) => (
-                  <>
+                 <Fragment key={order.id}>
                     <TableRow key={order.id}>
                       <TableCell
                         className="font-medium hover:text-primary "
@@ -250,7 +250,7 @@ export function OrderManagement() {
                         </TableCell>
                       </TableRow>
                     )}
-                  </>
+                 </Fragment>
                 ))}
               </TableBody>
             </Table>

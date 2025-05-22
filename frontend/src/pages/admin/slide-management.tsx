@@ -58,7 +58,7 @@ export default function SlideManagement() {
     <div className="relative">
       <Card>
         <CardHeader>
-          <CardTitle>Quản Lý Slide</CardTitle>
+          <CardTitle className="text-xl font-bold">Quản Lý Slide</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="mb-6 flex flex-wrap gap-3">

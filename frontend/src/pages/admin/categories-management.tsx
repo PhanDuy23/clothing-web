@@ -28,6 +28,8 @@ export default function CategoriesManagement() {
         setCategories(categories)
         setPagination(pagination)
       } else {
+        setCategories([])
+       
         alert(message)
       }
     }
@@ -60,7 +62,7 @@ export default function CategoriesManagement() {
     <div className="relative">
       <Card className="">
         <CardHeader>
-          <CardTitle>Quản Lý Danh Mục</CardTitle>
+          <CardTitle className="text-xl font-bold">Quản Lý Danh Mục</CardTitle>
           {/* <CardDescription>Xem và quản lý tất cả đơn hàng của cửa hàng</CardDescription> */}
         </CardHeader>
         <CardContent>

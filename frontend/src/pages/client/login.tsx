@@ -93,9 +93,9 @@ export function LoginForm() {
                         </Button>
 
                         <div className="text-center text-sm">
-                            <Link href="#" className="text-blue-600 hover:underline">
+                            {/* <Link href="#" className="text-blue-600 hover:underline">
                                 Quên mật khẩu?
-                            </Link>
+                            </Link> */}
                         </div>
 
                         <div className="text-center text-sm">

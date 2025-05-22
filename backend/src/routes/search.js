@@ -34,6 +34,7 @@ search.get("/", async (req, res) => {
         
         // Tạo điều kiện tìm kiếm cho mỗi từ
         let sql = "SELECT id, slug, name, price, shortDescription, thumbnail FROM products WHERE ";
+        let sqlCount = "select count(*) as total FROM products WHERE "
         let conditions = [];
         let params = [];
         
@@ -46,16 +47,26 @@ search.get("/", async (req, res) => {
         
         // Kết hợp các điều kiện với AND để đảm bảo tất cả các từ đều có mặt
         sql += conditions.join(" AND ");
+        sqlCount += conditions.join(" AND ");
+        
+        const [[{ total }]] = await db.query(sqlCount , params);
+
         sql += ` LIMIT ? OFFSET ?`;
         params.push(limit, offset);
 
         const [results] = await db.query(sql, params);
         
+        
         res.json({
             status: 200,
             success: true,
             message: "Thành công",
-            data: results
+            pagination: {
+                currentPage: page,
+                totalPages: Math.ceil(total / limit),
+                totalItems: total,
+            },
+            data: results,
         });
     } catch (err) {
         console.error("❌ Lỗi tìm kiếm banner:", err);

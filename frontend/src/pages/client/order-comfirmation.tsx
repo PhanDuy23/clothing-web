@@ -95,12 +95,12 @@ export function OrderConfirmation() {
             </div>
           </Card>
 
-          <div className="mt-6 flex items-center justify-between">
+          {/* <div className="mt-6 flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm text-blue-600">
               <HelpCircle className="h-4 w-4" />
               <a href="/contact">Cần hỗ trợ? Liên hệ chúng tôi</a>
             </div>          
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
