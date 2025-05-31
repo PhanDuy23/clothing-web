@@ -74,6 +74,7 @@
 ![slide](./frontend/public/images/image18.png)
 
 ## 5. Cấu trúc thư mục
+```
 .
 ├── .github/
 ├── backend/
@@ -86,7 +87,7 @@
 │   ├── public/
 │   └── src/
 ├── README.md
-
+```
 ## 6. Cài đặt
 
 
