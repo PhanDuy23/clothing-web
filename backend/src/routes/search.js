@@ -33,7 +33,7 @@ search.get("/", async (req, res) => {
         }
         
         // Tạo điều kiện tìm kiếm cho mỗi từ
-        let sql = "SELECT id, slug, name, price, shortDescription, thumbnail FROM products WHERE ";
+        let sql = "SELECT id, slug, name, price, shortDescription, thumbnail FROM products WHERE";
         let sqlCount = "select count(*) as total FROM products WHERE "
         let conditions = [];
         let params = [];

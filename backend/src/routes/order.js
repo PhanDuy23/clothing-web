@@ -149,7 +149,7 @@ orders.post("/", async (req, res) => {
   }
 });
 
-orders.get("/", authenticateToken, async (req, res) => {
+orders.get("/", async (req, res) => {
   const { status } = req.query;
   console.log(req.query);
   

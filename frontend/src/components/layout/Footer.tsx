@@ -34,13 +34,8 @@ export default function Footer() {
               <img src="/placeholder.svg" alt="Moca" className="h-8" />
               <img src="/placeholder.svg" alt="Kredivo" className="h-8" />
               <img src="/placeholder.svg" alt="Napas" className="h-8" />
-<<<<<<< HEAD:src/components/layout/Footer.tsx
-              <img src="/placeholder.svg" alt="Visa" className="h-8" /> */}
-            </div>
-=======
               <img src="/placeholder.svg" alt="Visa" className="h-8" />
             </div> */}
->>>>>>> develop:frontend/src/components/layout/Footer.tsx
           </div>
 
           {/* Contact Information */}
@@ -65,13 +60,8 @@ export default function Footer() {
               {/* <img src="/placeholder.svg" alt="GHN" className="h-8" />
               <img src="/placeholder.svg" alt="Ninja Van" className="h-8" />
               <img src="/placeholder.svg" alt="Ahamove" className="h-8" />
-<<<<<<< HEAD:src/components/layout/Footer.tsx
-              <img src="/placeholder.svg" alt="J&T Express" className="h-8" /> */}
-            </div>
-=======
               <img src="/placeholder.svg" alt="J&T Express" className="h-8" />
             </div> */}
->>>>>>> develop:frontend/src/components/layout/Footer.tsx
           </div>
 
           {/* Quick Links */}
@@ -121,11 +111,7 @@ export default function Footer() {
               <Input type="email" placeholder="Nhập email của bạn" className="flex-1" />
               <Button className="bg-red-600 hover:bg-red-700 text-white">ĐĂNG KÝ</Button>
             </div>
-<<<<<<< HEAD:src/components/layout/Footer.tsx
-            {/* <img src="placeholder.svg" alt="Đã thông báo Bộ Công Thương" className="h-16" /> */}
-=======
             <img src="/1996store.jpg" className="h-16 rounded-xl"  alt="Đã thông báo Bộ Công Thương"  />
->>>>>>> develop:frontend/src/components/layout/Footer.tsx
           </div>
         </div>
 
