@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware' // tuỳ đường dẫn của bạn
 import { UserType } from '../type'
-import { loginUser } from '../services/users'
+import { loginUser } from '../services/auth'
 
 type AuthStore = {
   user: UserType | null
@@ -24,7 +24,8 @@ export const useAuth = create<AuthStore>()(
         set({ loading: true });
         try {
           const { user, status, message, token } = await loginUser({ userName, password });
-
+        
+          
           if (status !== 200) throw new Error(message);
           sessionStorage.setItem("token", token);
           set({ user });
@@ -39,8 +40,7 @@ export const useAuth = create<AuthStore>()(
 
       logout: () => {
         set({ user: null });
-        localStorage.removeItem("cart");
-        localStorage.removeItem("order-items");
+        sessionStorage.clear();
       },
     }),
     {

@@ -10,6 +10,7 @@ import { Input } from "../../components/ui/input"
 import { useForm } from "react-hook-form"
 import  { useAuth } from "../../redux/useAuth"
 import { useLocation, useNavigate } from "react-router-dom"
+import { log } from "console"
 
 export function LoginForm() {
     const [error, setError] = React.useState("")
@@ -32,6 +33,8 @@ export function LoginForm() {
         setError("")
         try {
             const{status, user, message } = await login(data.userName, data.password)
+            console.log(status);
+            
             // Chuyển hướng người dùng về trang họ đã cố gắng truy cập 
             if(status == 200){
                 if(user.role == "customer") navigate(from, { replace: true })

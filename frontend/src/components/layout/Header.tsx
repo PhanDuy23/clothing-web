@@ -38,7 +38,7 @@ export default function Header() {
     setActiveMenu(null)
   }
   return (
-    <header className="w-full border-b fixed z-50 bg-white">
+    <header className="w-full h-[15%] border-b sticky z-50 bg-white top-0 left-0">
       {/* Top bar */}
       <div className="w-full bg-black text-white px-4 py-1 flex justify-between items-center text-sm">
         <div>

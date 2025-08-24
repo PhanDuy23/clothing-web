@@ -1,22 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import { CalendarIcon, Eye, EyeOff } from "lucide-react"
-import { format, parse, isValid } from "date-fns"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useState } from "react"
-import { cn } from "../../lib/utils"
 import { Button } from "../../components/ui/button"
-import { Calendar } from "../../components/ui/calendar"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../components/ui/form"
 import { Input } from "../../components/ui/input"
-import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/popover"
-import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group"
 import { useForm } from "react-hook-form"
-import { registerUser } from "../../services/users"
+import { registerUser } from "../../services/auth"
 import { useAuth } from "../../redux/useAuth"
 import { useNavigate } from "react-router-dom"
+import { Eye, EyeOff } from "lucide-react"
 
 const formSchema = z.object({
   fullName: z.string().min(1, "Họ là bắt buộc"),
@@ -29,7 +24,7 @@ const formSchema = z.object({
   //   invalid_type_error: "Định dạng ngày sinh không hợp lệ",
   // }),
   email: z.string().email("Email không hợp lệ"),
-  phone: z.string().min(8,"Email không hợp lệ"),
+  phone: z.string().min(8, "Email không hợp lệ"),
   password: z
     .string()
     .min(8, "Mật khẩu phải có ít nhất 8 ký tự")
@@ -248,6 +243,7 @@ export function RegisterForm() {
             <Link href="/login" className="text-blue-600 hover:underline">
               Đăng nhập ngay
             </Link>
+            
           </div>
         </form>
       </Form>

@@ -19,8 +19,9 @@ import {
 import { Label } from "../../components/ui/label"
 import Pagination from "../../components/layout/pagination"
 import { useEffect, useState } from "react"
-import { getUsers, registerUser, updateUser } from "../../services/users"
+import { getUsers,  updateUser } from "../../services/users"
 import { Employee } from "../../type"
+import { registerUser } from "../../services/auth"
 
 
 export function EmployeeManagement() {
